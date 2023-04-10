@@ -1,5 +1,5 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
-export default defineNuxtConfig({
+const defineNuxtConfig = {
   app: {
     head: {
       charset: "utf-8",
@@ -16,6 +16,7 @@ export default defineNuxtConfig({
     strict: true,
   },
   modules: ["@nuxtjs/tailwindcss"],
+  buildModules: ["@nuxt/typescript-build"],
   build: {
     postcss: {
       postcssOptions: {
@@ -26,5 +27,6 @@ export default defineNuxtConfig({
       },
     },
   },
-  extends: "./.nuxt/tsconfig.json",
-});
+};
+
+export default defineNuxtConfig;
