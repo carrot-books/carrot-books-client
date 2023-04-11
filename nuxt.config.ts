@@ -15,7 +15,7 @@ const defineNuxtConfig = {
   typescript: {
     strict: true,
   },
-  modules: ["@nuxtjs/tailwindcss"],
+  modules: ["@nuxtjs/tailwindcss", "@pinia/nuxt"],
   buildModules: ["@nuxt/typescript-build"],
   build: {
     postcss: {
