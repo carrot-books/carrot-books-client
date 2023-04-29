@@ -12,6 +12,12 @@
     >
       카운트-
     </button>
+    <button
+      class="bg-red-100 font-bold px-4 py-2 hover:scale-105 active:scale-100"
+      @click="init"
+    >
+      초기화
+    </button>
     <p>{{ doubleCount }}</p>
     <p>{{ count }}</p>
   </div>
@@ -32,12 +38,16 @@ export default {
     const decrement = () => {
       counterStore.decrement();
     };
+    const init = () => {
+      counterStore.init();
+    };
 
     return {
       count,
       doubleCount,
       increment,
       decrement,
+      init,
     };
   },
 };

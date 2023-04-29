@@ -13,10 +13,15 @@ export const useCounterStore = defineStore("counter", () => {
     count.value--;
   }
 
+  function init() {
+    count.value = 0;
+  }
+
   return {
     count,
     doubleCount,
     increment,
     decrement,
+    init,
   };
 });
