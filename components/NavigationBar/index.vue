@@ -6,7 +6,9 @@
       :key="i"
       :to="menu.to"
     >
-      <p class="text-lg font-bold">{{ menu.name }}</p>
+      <p class="text-lg font-bold hover:text-primary">
+        {{ menu.name }}
+      </p>
     </NuxtLink>
   </div>
 </template>
