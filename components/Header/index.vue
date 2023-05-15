@@ -5,7 +5,11 @@
       <p class="text-gray600 font-sans ml-3">책 등록하기</p>
     </button>
     <button class="bg-gray150 h-14 mr-5 rounded p-2.5">
-      <img src="../../assets/img/icon-notification.png" />
+      <img
+        @click="isNoticeOpen = !isNoticeOpen"
+        src="../../assets/img/icon-notification.png"
+        alt="알림"
+      />
     </button>
     <p class="bg-gray150 border border-gray250 h-14 rounded flex flex-row">
       <span class="w-14 p-4">
@@ -26,12 +30,19 @@
       </span>
     </p>
   </div>
+  <NoticeList :isNoticeOpen="isNoticeOpen"></NoticeList>
 </template>
 
-<script>
+<script lang="ts">
+import { IHeader } from "../../src/types/types";
+
 export default {
   data() {
-    return { user: "마장동칼잽이", showProfile: false };
+    return {
+      user: "마장동칼잽이",
+      showProfile: false,
+      isNoticeOpen: false,
+    } as IHeader;
   },
 };
 </script>
