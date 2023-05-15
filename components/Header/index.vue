@@ -1,46 +1,42 @@
 <template>
-  <div class="border-b-2 border-b-secondary">
-    <div class="w-2/3 mx-auto py-8 flex items-center">
-      <div v-if="!mobile">
-        <img
-          id="logo-h"
-          class="h-12 w-auto"
-          src="../../assets/img/logo_horizontal.png"
-        />
-      </div>
-      <div v-else>
-        <img
-          id="logo-v"
-          class="h-12 w-12"
-          src="../../assets/img/logo_vertical.png"
-        />
-      </div>
-    </div>
+  <div class="w-full h-20 flex flex-row justify-end pr-12 pt-6">
+    <button class="bg-gray150 h-14 mr-5 rounded py-4 px-6 flex flex-row">
+      <img src="../../assets/img/icon-add.png" />
+      <p class="text-gray600 font-sans ml-3">책 등록하기</p>
+    </button>
+    <button class="bg-gray150 h-14 mr-5 rounded p-2.5">
+      <img src="../../assets/img/icon-notification.png" />
+    </button>
+    <p class="bg-gray150 border border-gray250 h-14 rounded flex flex-row">
+      <span class="w-14 p-4">
+        <img src="../../assets/img/icon-image.png" />
+      </span>
+      <span class="text-gray600 rounded font-sans bg-gray100 p-4">
+        {{ user }}
+        <button @click="showProfile = !showProfile">v</button>
+        <div
+          v-show="showProfile"
+          class="absolute top-20 right-12 rounded flex border border-gray300 flex-col justify-start align-top"
+        >
+          <button class="w-full py-2 px-4 border-b border-gray300 text-start">
+            개인정보 수정
+          </button>
+          <button class="w-full py-2 px-4 rounded text-start">로그아웃</button>
+        </div>
+      </span>
+    </p>
   </div>
 </template>
 
 <script>
 export default {
   data() {
-    return {
-      mobile: false,
-    };
-  },
-  setup() {
-    const isMobile = () => {
-      return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-        navigator.userAgent
-      )
-        ? true
-        : false;
-    };
-
-    return {
-      isMobile,
-    };
-  },
-  mounted() {
-    this.mobile = this.isMobile();
+    return { user: "마장동칼잽이", showProfile: false };
   },
 };
 </script>
+
+<style>
+.d {
+}
+</style>
