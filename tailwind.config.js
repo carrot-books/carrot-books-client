@@ -77,6 +77,7 @@ module.exports = {
       gray870: "#1A1A1A",
       gray900: "#111111",
       black: "#000000",
+      inputGray: "#667080",
     },
     fontFamily: {
       sans: ["Graphik", "sans-serif"],

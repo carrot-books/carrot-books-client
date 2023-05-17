@@ -1,5 +1,11 @@
 <template>
   <div class="w-2/3 mx-auto h-screen">
-    <h2>로그인</h2>
+    <Login />
   </div>
 </template>
+
+<script>
+definePageMeta({
+  layout: "login",
+});
+</script>
