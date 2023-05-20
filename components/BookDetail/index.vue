@@ -17,7 +17,7 @@
         <p class="text-sm">
           {{ bookData[1].writer }} / {{ bookData[1].publisher }}
         </p>
-        <p class="text-xl">
+        <p class="text-xl h-full break-keep overflow-auto text-ellipsis">
           {{ bookData[1].story }}
         </p>
       </div>
