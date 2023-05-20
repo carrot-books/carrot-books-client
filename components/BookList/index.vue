@@ -2,14 +2,16 @@
   <div class="w-full h-full p-20 flex flex-row gap-5 flex-wrap">
     <div
       class="w-64 h-96 flex flex-col justify-end rounded hover:bg-gray150 cursor-pointer"
-      v-for="(books, i) in Bookdata"
-      :key="i"
+      v-for="books in Bookdata"
+      :key="books.id"
+      @click="onClickBook(books.id)"
     >
       <img
-        class="object-cover w-64 max-h-80 mb-4 border rounded bg-gray250"
+        class="object-cover w-full max-h-80 mb-4 border rounded bg-gray250"
         :src="books.img"
         alt=""
       />
+
       <div class="flex flex-row">
         <div class="mr-2">
           <img
@@ -32,6 +34,11 @@ export default {
     return {
       Bookdata,
     };
+  },
+  methods: {
+    onClickBook(bookId: string) {
+      this.$router.push(`/detail/${bookId}`);
+    },
   },
 };
 </script>
