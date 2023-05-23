@@ -29,7 +29,10 @@
         로그인하기
       </div>
       <div class="mt-16 font-normal text-sm text-inputGray text-center">
-        처음이신가요? <span class="underline underline-offset-1">회원가입</span>
+        처음이신가요?
+        <NuxtLink to="/signup">
+          <span class="underline underline-offset-1">회원가입</span>
+        </NuxtLink>
       </div>
     </div>
   </div>
