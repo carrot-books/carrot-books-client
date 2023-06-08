@@ -82,11 +82,14 @@ module.exports = {
     fontFamily: {
       sans: ["Graphik", "sans-serif"],
       serif: ["Merriweather", "serif"],
+      pretendard: ["Pretendard"],
     },
     extend: {
       spacing: {
         128: "32rem",
         144: "36rem",
+        800: "800px",
+        960: "960px",
       },
       borderRadius: {
         "4xl": "2rem",
