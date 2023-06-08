@@ -1,6 +1,9 @@
 <template>
   <div class="w-full h-20 flex flex-row justify-end pr-12 pt-6">
-    <button class="bg-gray150 h-14 mr-5 rounded py-4 px-6 flex flex-row">
+    <button
+      class="bg-gray150 h-14 mr-5 rounded py-4 px-6 flex flex-row"
+      v-on:click="toggleRegisterModal"
+    >
       <img src="../../assets/img/icon-add.png" />
       <p class="text-gray600 font-sans ml-3">책 등록하기</p>
     </button>
@@ -35,8 +38,18 @@
 
 <script lang="ts">
 import { IHeader } from "../../src/types/types";
+import { useHeaderStore } from "~/stores/header";
+import { computed } from "vue";
 
 export default {
+  setup() {
+    const headerStore = useHeaderStore();
+    const toggleRegisterModal = computed(() => headerStore.toggleRegisterModal);
+
+    return {
+      toggleRegisterModal,
+    };
+  },
   data() {
     return {
       user: "마장동칼잽이",
