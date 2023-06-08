@@ -1,15 +1,46 @@
 <template>
-  <div class="w-2/3 mx-auto py-8 flex gap-8">
-    <NuxtLink
-      class="cursor-pointer"
-      v-for="(menu, i) in menus"
-      :key="i"
-      :to="menu.to"
-    >
-      <p class="text-lg font-bold hover:text-primary">
-        {{ menu.name }}
-      </p>
-    </NuxtLink>
+  <div class="w-60 bg-gray200 flex-col colum py-8 px-6 flex gap-8">
+    <div>
+      <div v-if="!mobile" class="mb-20">
+        <img
+          id="logo-h"
+          class="h-10 w-auto"
+          src="../../assets/img/logo_horizontal.png"
+        />
+      </div>
+      <div v-else>
+        <img
+          id="logo-v"
+          class="h-10 w-10"
+          src="../../assets/img/logo_vertical.png"
+        />
+      </div>
+    </div>
+    <div>
+      <NuxtLink
+        class="cursor-pointer hover:bg-gray-200"
+        v-for="(menu, i) in menus"
+        :key="i"
+        :to="menu.to"
+      >
+        <p class="text-lg hover:text-primary hover:font-bold">
+          {{ menu.name }}
+        </p>
+      </NuxtLink>
+    </div>
+    <div class="h-24">
+      <p class="text-sm mb-4">마이페이지</p>
+      <NuxtLink
+        class="cursor-pointer hover:bg-gray-200"
+        v-for="(myMenu, i) in myMenus"
+        :key="i"
+        :to="myMenu.to"
+      >
+        <p class="text-lg hover:text-primary hover:font-bold">
+          {{ myMenu.name }}
+        </p>
+      </NuxtLink>
+    </div>
   </div>
 </template>
 
@@ -17,13 +48,29 @@
 export default {
   data() {
     return {
-      menus: [
-        { name: "홈", to: "/" },
-        { name: "로그인", to: "login" },
-        { name: "카운트", to: "count" },
-        { name: "로딩테스트", to: "loading" },
+      mobile: false,
+      menus: [{ name: "책리스트", to: "/" }],
+      myMenus: [
+        { name: "내 책 리스트", to: "/" },
+        { name: "대여관리", to: "/" },
       ],
     };
+  },
+  setup() {
+    const isMobile = () => {
+      return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+        navigator.userAgent
+      )
+        ? true
+        : false;
+    };
+
+    return {
+      isMobile,
+    };
+  },
+  mounted() {
+    this.mobile = this.isMobile();
   },
 };
 </script>

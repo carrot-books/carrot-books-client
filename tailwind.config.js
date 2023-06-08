@@ -77,15 +77,19 @@ module.exports = {
       gray870: "#1A1A1A",
       gray900: "#111111",
       black: "#000000",
+      inputGray: "#667080",
     },
     fontFamily: {
       sans: ["Graphik", "sans-serif"],
       serif: ["Merriweather", "serif"],
+      pretendard: ["Pretendard"],
     },
     extend: {
       spacing: {
         128: "32rem",
         144: "36rem",
+        800: "800px",
+        960: "960px",
       },
       borderRadius: {
         "4xl": "2rem",

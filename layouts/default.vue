@@ -1,8 +1,9 @@
 <template>
-  <div>
-    <Header />
+  <div class="flex w-screen h-screen">
     <NavigationBar />
-    <slot />
-    <Footer />
+    <div class="flex-col w-full">
+      <Header />
+      <slot></slot>
+    </div>
   </div>
 </template>

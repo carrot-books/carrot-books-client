@@ -1,6 +1,6 @@
 <template>
   <div class="w-2/3 mx-auto h-screen">
-    <Login />
+    <SignUp />
   </div>
 </template>
 
