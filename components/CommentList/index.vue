@@ -1,7 +1,8 @@
 <template>
   <div class="flex flex-col">
     <div class="text-gray600 py-2 border-b border-gray350 mb-8">
-      <span class="font-bold mr-1">전체 리뷰</span><span>0</span>
+      <span class="font-bold mr-1">전체 리뷰</span
+      ><span>{{ bookData.length }}</span>
     </div>
     <div
       class="flex flex-row h-full w-full mb-2 pt-4 pb-6 border-b border-gray250"
