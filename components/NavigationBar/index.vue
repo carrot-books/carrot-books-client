@@ -2,11 +2,13 @@
   <div class="w-60 bg-gray200 flex-col colum py-8 px-6 flex gap-8">
     <div>
       <div v-if="!mobile" class="mb-20">
-        <img
-          id="logo-h"
-          class="h-10 w-auto"
-          src="../../assets/img/logo_horizontal.png"
-        />
+        <NuxtLink to="/">
+          <img
+            id="logo-h"
+            class="h-10 w-auto cursor-pointer"
+            src="../../assets/img/logo_horizontal.png"
+          />
+        </NuxtLink>
       </div>
       <div v-else>
         <img
