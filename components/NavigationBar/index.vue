@@ -20,14 +20,14 @@
       </NuxtLink>
     </div>
     <div class="h-24 ml-12">
-      <p class="text-sm mb-4 text-gray600">마이페이지</p>
+      <p class="mb-4 text-gray600 text-sm">마이페이지</p>
       <NuxtLink
-        class="cursor-pointer hover:bg-gray-200"
+        class="cursor-pointer"
         v-for="(myMenu, i) in myMenus"
         :key="i"
         :to="myMenu.to"
       >
-        <p class="text-lg hover:text-primary hover:font-bold">
+        <p class="text-md text-gray800 hover:text-primary">
           {{ myMenu.name }}
         </p>
       </NuxtLink>
