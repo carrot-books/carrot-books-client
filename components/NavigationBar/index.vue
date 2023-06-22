@@ -1,50 +1,72 @@
 <template>
-  <div class="w-60 bg-gray200 flex-col colum py-8 px-6 flex gap-8">
+  <div class="w-60 bg-gray200 flex-col colum flex gap-8">
     <div>
-      <div v-if="!mobile" class="mb-20">
+      <div class="mb-20 px-10 mt-6">
         <NuxtLink to="/">
           <img
             id="logo-h"
-            class="h-10 w-auto cursor-pointer"
-            src="../../assets/img/logo_horizontal.png"
+            class="h-full w-full cursor-pointer"
+            src="../../assets/img/logo_vertical.png"
           />
         </NuxtLink>
       </div>
-      <div v-else>
-        <img
-          id="logo-v"
-          class="h-10 w-10"
-          src="../../assets/img/logo_vertical.png"
-        />
-      </div>
     </div>
-    <div>
-      <NuxtLink
-        class="cursor-pointer hover:bg-gray-200"
-        v-for="(menu, i) in menus"
-        :key="i"
-        :to="menu.to"
-      >
-        <p class="text-lg hover:text-primary hover:font-bold">
+
+    <div class="cursor-pointer ml-12 py-1">
+      <NuxtLink v-for="(menu, i) in menus" :key="i" :to="menu.to">
+        <p class="text-white py-2 leading-none bookmark">
           {{ menu.name }}
         </p>
       </NuxtLink>
     </div>
-    <div class="h-24">
-      <p class="text-sm mb-4">마이페이지</p>
+    <div class="h-24 ml-12">
+      <p class="mb-4 text-gray600 text-sm">마이페이지</p>
       <NuxtLink
-        class="cursor-pointer hover:bg-gray-200"
+        class="cursor-pointer"
         v-for="(myMenu, i) in myMenus"
         :key="i"
         :to="myMenu.to"
       >
-        <p class="text-lg hover:text-primary hover:font-bold">
+        <p class="text-md text-gray800 hover:text-primary">
           {{ myMenu.name }}
         </p>
       </NuxtLink>
     </div>
   </div>
 </template>
+
+<style>
+.bookmark {
+  position: relative;
+  height: 100%;
+  background-color: #ffa453;
+  padding-left: 0.5rem;
+}
+
+.bookmark::before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: -16px;
+  width: 0;
+  height: 0;
+  border-top: 0px solid transparent;
+  border-bottom: 16px solid transparent;
+  border-right: 16px solid #ffa453;
+}
+
+.bookmark::after {
+  content: "";
+  position: absolute;
+  top: 16px;
+  left: -16px;
+  width: 0;
+  height: 0;
+  border-top: 16px solid transparent;
+  border-bottom: 0px solid transparent;
+  border-right: 16px solid #ffa453;
+}
+</style>
 
 <script>
 export default {
