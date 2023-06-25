@@ -23,6 +23,10 @@
       </div>
     </div>
   </div>
+  <div class="px-64">
+    <CommentWrite />
+    <CommentList />
+  </div>
 </template>
 
 <script setup lang="ts">

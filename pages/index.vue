@@ -1,6 +1,6 @@
 <template>
   <div class="w-full h-screen mx-auto">
-    <BookList></BookList>
+    <BookList />
 
     <BookRegister v-if="isRegisterModalOpen == true" />
   </div>
