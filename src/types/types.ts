@@ -1,7 +1,6 @@
 export interface IHeader {
   user: string;
   showProfile: boolean;
-  isNoticeOpen: boolean;
 }
 
 export interface IBookdata {

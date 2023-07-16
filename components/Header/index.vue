@@ -68,8 +68,6 @@ export default {
     return {
       user: "마장동칼잽이",
       showProfile: false,
-      isNoticeOpen: false,
-      isProfileOpen: false,
     } as IHeader;
   },
 };
