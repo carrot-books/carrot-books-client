@@ -10,7 +10,7 @@
     <button class="bg-gray150 w-14 h-14 mr-5 rounded p-2.5 relative">
       <img
         class="img_init"
-        @click="isNoticeOpen = !isNoticeOpen"
+        @click="noticeList.openList()"
         src="../../assets/img/icon-notification.png"
         alt="알림"
       />
@@ -31,27 +31,37 @@
       v-show="showProfile"
       class="absolute top-20 right-12 rounded flex border border-gray300 flex-col justify-start align-top"
     >
-      <button class="w-full py-2 px-4 border-b border-gray300 text-start">
+      <button
+        @click="profileModal.openModal"
+        class="w-full py-2 px-4 border-b border-gray300 text-start"
+      >
         개인정보 수정
       </button>
       <button class="w-full py-2 px-4 rounded text-start">로그아웃</button>
     </div>
   </div>
-  <NoticeList :isNoticeOpen="isNoticeOpen"></NoticeList>
+  <NoticeList></NoticeList>
+  <PopUp class="absolute" />
 </template>
 
 <script lang="ts">
 import { IHeader } from "../../src/types/types";
 import { useHeaderStore } from "~/stores/header";
+import { useProfileModalStore } from "../../stores/profileModal";
+import { useNoticeListStore } from "../../stores/noticeList";
 import { computed } from "vue";
 
 export default {
   setup() {
     const headerStore = useHeaderStore();
     const toggleRegisterModal = computed(() => headerStore.toggleRegisterModal);
+    const profileModal = useProfileModalStore();
+    const noticeList = useNoticeListStore();
 
     return {
       toggleRegisterModal,
+      profileModal,
+      noticeList,
     };
   },
   data() {
@@ -59,6 +69,7 @@ export default {
       user: "마장동칼잽이",
       showProfile: false,
       isNoticeOpen: false,
+      isProfileOpen: false,
     } as IHeader;
   },
 };
