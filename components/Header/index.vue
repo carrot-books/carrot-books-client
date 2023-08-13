@@ -32,7 +32,7 @@
       class="absolute top-20 right-12 rounded flex border border-gray300 flex-col justify-start align-top"
     >
       <button
-        @click="profileModal.openModal"
+        @click="profileModal.openModal()"
         class="w-full py-2 px-4 border-b border-gray300 text-start"
       >
         개인정보 수정
@@ -41,7 +41,7 @@
     </div>
   </div>
   <NoticeList></NoticeList>
-  <PopUp class="absolute" />
+  <ProfileModal class="absolute" />
 </template>
 
 <script lang="ts">
