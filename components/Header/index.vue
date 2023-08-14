@@ -37,17 +37,26 @@
       >
         개인정보 수정
       </button>
-      <button class="w-full py-2 px-4 rounded text-start">로그아웃</button>
+      <button
+        @click="logoutModal.openModal()"
+        class="w-full py-2 px-4 rounded text-start"
+      >
+        로그아웃
+      </button>
     </div>
   </div>
   <NoticeList></NoticeList>
   <ProfileModal class="absolute" />
+  <LogoutModal class="absolute" />
 </template>
 
 <script lang="ts">
 import { IHeader } from "../../src/types/types";
 import { useHeaderStore } from "~/stores/header";
-import { useProfileModalStore } from "../../stores/profileModal";
+import {
+  useProfileModalStore,
+  useLogoutModalStore,
+} from "../../stores/onModal";
 import { useNoticeListStore } from "../../stores/noticeList";
 import { computed } from "vue";
 
@@ -56,12 +65,14 @@ export default {
     const headerStore = useHeaderStore();
     const toggleRegisterModal = computed(() => headerStore.toggleRegisterModal);
     const profileModal = useProfileModalStore();
+    const logoutModal = useLogoutModalStore();
     const noticeList = useNoticeListStore();
 
     return {
       toggleRegisterModal,
       profileModal,
       noticeList,
+      logoutModal,
     };
   },
   data() {
