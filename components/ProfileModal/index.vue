@@ -54,7 +54,7 @@
 </template>
 
 <script lang="ts">
-import { useProfileModalStore } from "../../stores/profileModal";
+import { useProfileModalStore } from "../../stores/onModal";
 
 export default {
   setup() {
