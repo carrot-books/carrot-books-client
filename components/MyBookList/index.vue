@@ -19,11 +19,11 @@
     </div>
     <div class="px-36">
       <div
-        class="w-56 h-80 border-dashed border rounded-md flex flex-col justify-center items-center cursor-pointer"
+        class="bookCard w-56 h-80 border-dashed border rounded-md flex flex-col justify-center items-center cursor-pointer"
         @click="toggleRegisterModal"
       >
-        <div class="">현재 등록한 책이 없습니다</div>
-        <div class="">책 등록하기 ></div>
+        <div class="bookCardText">현재 등록한 책이 없습니다</div>
+        <div class="bookCardText">책 등록하기 ></div>
       </div>
     </div>
   </div>
@@ -47,3 +47,13 @@ export default {
   },
 };
 </script>
+
+<style>
+.bookCard {
+  border-color: #dfdfdf;
+}
+
+.bookCardText {
+  color: #b7b7b7;
+}
+</style>
