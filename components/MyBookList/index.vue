@@ -8,11 +8,21 @@
       </div>
     </div>
     <div class="flex flex-row w-full border-b px-36 mb-10">
-      <button class="flex mr-6 cursor-pointer border-b-4">
+      <button
+        id="registeredBook"
+        class="flex mr-6 cursor-pointer"
+        :style="buttonStyle(1)"
+        @click="setActiveButton(1)"
+      >
         등록한 책
         <p class="ml-1">(0)</p>
       </button>
-      <button class="flex cursor-pointer focus:border-b-4">
+      <button
+        id="transactionBook"
+        class="flex cursor-pointer"
+        :style="buttonStyle(2)"
+        @click="setActiveButton(2)"
+      >
         당근한 책
         <p class="ml-1">(0)</p>
       </button>
@@ -32,17 +42,33 @@
 
 <script lang="ts">
 import { useHeaderStore } from "../../stores/header";
-import { computed } from "vue";
+import { ref, computed } from "vue";
 
 export default {
   setup() {
     const headerStore = useHeaderStore();
     const toggleRegisterModal = computed(() => headerStore.toggleRegisterModal);
     const isRegisterModalOpen = computed(() => headerStore.isRegisterModalOpen);
+    const activeButton = ref(null ?? 0);
+
+    const setActiveButton = (buttonNum: number) => {
+      activeButton.value = buttonNum;
+    };
+
+    const buttonStyle = (buttonNum: number) => {
+      return {
+        borderBottom:
+          activeButton.value === buttonNum
+            ? "4px solid black"
+            : "4px solid white",
+      };
+    };
 
     return {
       toggleRegisterModal,
       isRegisterModalOpen,
+      buttonStyle,
+      setActiveButton,
     };
   },
 };
