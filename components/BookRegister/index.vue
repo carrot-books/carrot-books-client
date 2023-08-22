@@ -2,6 +2,7 @@
   <div
     id="mask-book-register"
     class="absolute w-full h-full top-0 left-0 backdrop-blur-sm z-10"
+    style="background-color: rgba(17, 17, 17, 0.5)"
   >
     <div
       class="absolute w-8/12 h-4/5 bg-white top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 rounded-lg"
