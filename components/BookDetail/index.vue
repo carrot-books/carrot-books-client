@@ -7,7 +7,10 @@
           alt=""
           class="h-80 rounded object-cover"
         />
-        <button class="h-14 py-4 rounded bg-gray150 hover:bg-gray300">
+        <button
+          class="h-14 py-4 rounded text-gray100 bg-primary active:bg-primaryDark"
+          @click="showRentalModal"
+        >
           <p>책 대여 신청하기</p>
         </button>
       </div>
@@ -27,10 +30,29 @@
     <CommentWrite />
     <CommentList />
   </div>
+  <div>
+    <ModalComponent
+      title="대여 기간 안내"
+      content="대여 기간은 기본적으로 2주로 설정되어 있으며, 반납 이틀 전부터 연장이 가능합니다. 단, 대여 및 연장 신청은 거절될 수 있습니다."
+      buttonName="책 대여 신청"
+      :isVisible="isModalVisible"
+      @closeModal="hideModal"
+    />
+  </div>
 </template>
 
 <script setup lang="ts">
 import Bookdata from "../../src/data/bookData";
-
+import { ref } from "vue";
+import ModalComponent from "../ModalComponent/index.vue";
 const bookData = Bookdata;
+
+const isModalVisible = ref(false);
+
+const showRentalModal = () => {
+  isModalVisible.value = true;
+};
+const hideModal = () => {
+  isModalVisible.value = false;
+};
 </script>
