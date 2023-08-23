@@ -13,3 +13,17 @@ export interface IBookdata {
   writer?: string;
   publisher?: string;
 }
+
+export interface IBookListData {
+  author: string;
+  cover: string;
+  id: number;
+  title: string;
+  registered: {
+    owner: {
+      id: number;
+      name: string;
+      profileImage: string;
+    };
+  };
+}
