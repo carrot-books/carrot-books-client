@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full h-screen mx-auto">
+  <div class="w-full mx-auto">
     <BookList />
 
     <BookRegister v-if="isRegisterModalOpen == true" />
