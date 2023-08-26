@@ -9,7 +9,7 @@
         <input
           id="e-mail"
           v-model="email"
-          class="border-solid border border-inputGray rounded-md w-full h-12"
+          class="border-solid border border-inputGray rounded-md w-full h-12 px-4"
         />
       </div>
       <div class="mt-8 relative">
@@ -19,12 +19,14 @@
         <input
           id="password"
           v-model="password"
-          class="border-solid border border-inputGray rounded-md w-full h-12"
+          type="password"
+          class="border-solid border border-inputGray rounded-md w-full h-12 px-4"
         />
         <img src="../../assets/img/eye.png" class="absolute top-9 right-3" />
       </div>
       <div
         class="mt-14 bg-gray600 text-white rounded-md w-full h-12 flex items-center justify-center"
+        @click="onClickLogin"
       >
         로그인하기
       </div>
@@ -38,7 +40,30 @@
   </div>
 </template>
 
-<script></script>
+<script lang="ts">
+export default {
+  data() {
+    return {
+      email: "",
+      password: "",
+      loggedIn: false,
+      token: {
+        token: "rotcarcarrotrotcarcarrot",
+      },
+    };
+  },
+  methods: {
+    onClickLogin() {
+      if (this.email === "carrot" && this.password === "carrot") {
+        this.$router.push("/");
+        localStorage.setItem("userData", JSON.stringify(this.token));
+      } else {
+        alert("아이디, 비밀번호를 확인해 주세요");
+      }
+    },
+  },
+};
+</script>
 
 <style>
 .input-label {
