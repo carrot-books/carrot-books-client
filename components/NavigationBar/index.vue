@@ -94,7 +94,7 @@ export default {
       menus: [{ name: "책리스트", to: "/" }],
       myMenus: [
         { name: "내 책 리스트", to: "/myBookList" },
-        { name: "대여관리", to: "/" },
+        { name: "대여관리", to: "/rentalManagement" },
       ],
     };
   },
