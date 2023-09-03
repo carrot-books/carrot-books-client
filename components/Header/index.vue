@@ -29,7 +29,7 @@
     </p>
     <div
       v-show="showProfile"
-      class="absolute top-20 right-12 rounded flex border border-gray300 flex-col justify-start align-top"
+      class="absolute top-20 right-12 rounded flex border border-gray300 flex-col justify-start align-top bg-white"
     >
       <button
         @click="profileModal.openModal()"
