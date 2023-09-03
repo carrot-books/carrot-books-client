@@ -1,3 +1,4 @@
 <template>
-  <rentalManagement />
+  <RentFromList />
+  <RentToList />
 </template>

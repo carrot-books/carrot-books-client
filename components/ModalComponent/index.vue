@@ -32,7 +32,6 @@
 
 <script setup lang="ts">
 import { ref, defineProps, defineEmits } from "vue";
-import { emit } from "process";
 
 const props = defineProps({
   title: String,

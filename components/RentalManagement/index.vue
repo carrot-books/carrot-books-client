@@ -1,4 +1,0 @@
-<template>
-  <RentFromList />
-  <RentToList />
-</template>
