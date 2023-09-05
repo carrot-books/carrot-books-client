@@ -29,6 +29,13 @@
     </div>
   </div>
   <Toast icon="red" content="아직 안 됩니당" :isVisible="isToast" />
+  <RentalBookModal
+    title="ㅎㅎ"
+    content="ㅎㅎ"
+    buttonName="ㄷㄷ"
+    userData="ㄷㄷ"
+    isVisible="false,"
+  />
 </template>
 
 <script lang="ts">
