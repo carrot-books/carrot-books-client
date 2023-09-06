@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full h-screen mx-auto">
+  <div class="w-full mx-auto">
     <BookList />
 
     <BookRegister v-if="isRegisterModalOpen == true" />
@@ -9,15 +9,19 @@
 <script>
 import { useHeaderStore } from "~/stores/header";
 import { computed } from "vue";
+import { useUserStore } from "~/stores/user";
 
 export default {
-  setup() {
-    const headerStore = useHeaderStore();
-    const isRegisterModalOpen = computed(() => headerStore.isRegisterModalOpen);
-
-    return {
-      isRegisterModalOpen,
-    };
+  computed: {
+    isRegisterModalOpen() {
+      const headerStore = useHeaderStore();
+      return computed(() => headerStore.isRegisterModalOpen);
+    },
+    isLogin() {
+      const userStore = useUserStore();
+      userStore.isLogin();
+      return userStore.isLoggedIn;
+    },
   },
 };
 </script>

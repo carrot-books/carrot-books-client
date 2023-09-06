@@ -1,5 +1,5 @@
 <template>
-  <div class="w-60 bg-gray200 flex-col colum flex gap-8">
+  <div class="w-60 bg-gray200 flex-col flex gap-8">
     <div>
       <div class="mb-20 px-10 mt-6">
         <NuxtLink to="/">
@@ -11,26 +11,34 @@
         </NuxtLink>
       </div>
     </div>
+    <div class="h-full flex-col flex justify-between">
+      <div>
+        <div class="cursor-pointer ml-12 py-1">
+          <NuxtLink v-for="(menu, i) in menus" :key="i" :to="menu.to">
+            <p class="text-white py-2 leading-none bookmark">
+              {{ menu.name }}
+            </p>
+          </NuxtLink>
+        </div>
+        <div class="h-24 ml-12">
+          <p class="mb-4 text-gray600 text-sm">마이페이지</p>
+          <NuxtLink
+            class="cursor-pointer"
+            v-for="(myMenu, i) in myMenus"
+            :key="i"
+            :to="myMenu.to"
+          >
+            <p class="text-md text-gray800 hover:text-primary">
+              {{ myMenu.name }}
+            </p>
+          </NuxtLink>
+        </div>
+      </div>
 
-    <div class="cursor-pointer ml-12 py-1">
-      <NuxtLink v-for="(menu, i) in menus" :key="i" :to="menu.to">
-        <p class="text-white py-2 leading-none bookmark">
-          {{ menu.name }}
-        </p>
-      </NuxtLink>
-    </div>
-    <div class="h-24 ml-12">
-      <p class="mb-4 text-gray600 text-sm">마이페이지</p>
-      <NuxtLink
-        class="cursor-pointer"
-        v-for="(myMenu, i) in myMenus"
-        :key="i"
-        :to="myMenu.to"
-      >
-        <p class="text-md text-gray800 hover:text-primary">
-          {{ myMenu.name }}
-        </p>
-      </NuxtLink>
+      <div class="border-t flex flex-col justify-center h-28 px-6">
+        <div class="contactText text-sx">제휴 및 문의</div>
+        <div class="emailText text-sm">books@dwook.co</div>
+      </div>
     </div>
   </div>
 </template>
@@ -66,6 +74,16 @@
   border-bottom: 0px solid transparent;
   border-right: 16px solid #ffa453;
 }
+.border-t {
+  color: #38200b33;
+}
+.contactText {
+  color: #1f55b1;
+}
+
+.emailText {
+  color: #234279;
+}
 </style>
 
 <script>
@@ -75,8 +93,8 @@ export default {
       mobile: false,
       menus: [{ name: "책리스트", to: "/" }],
       myMenus: [
-        { name: "내 책 리스트", to: "/" },
-        { name: "대여관리", to: "/" },
+        { name: "내 책 리스트", to: "/myBookList" },
+        { name: "대여관리", to: "/rentalManagement" },
       ],
     };
   },

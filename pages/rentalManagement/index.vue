@@ -1,0 +1,4 @@
+<template>
+  <RentFromList />
+  <RentToList />
+</template>
