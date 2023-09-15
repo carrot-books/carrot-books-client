@@ -6,8 +6,8 @@
         <div
           v-for="books in bookListData"
           :key="books.id"
-          class="w-56 flex flex-col justify-end rounded"
-          @click="onClickBook"
+          class="w-56 flex flex-col justify-end rounded cursor-pointer"
+          @click="openBookRegisterModal"
         >
           <img
             class="w-full border border-gray350 rounded mb-2"
@@ -23,16 +23,26 @@
       </div>
     </div>
   </div>
+  <RentalBookModal
+    title="ㅎㅎ"
+    content="ㅎㅎ"
+    buttonName="책 반납하기"
+    userData="ㄷㄷ"
+    :isVisible="isModalVisible"
+    @closeModal="closeBookRegisterModal"
+  />
 </template>
 
 <script lang="ts">
 import axios from "axios";
 import { IBookListData } from "../../src/types/types";
+import { ref } from "vue";
 
 export default {
   data() {
     return {
       bookListData: [] as IBookListData[],
+      isModalVisible: ref(false),
     };
   },
   created() {
@@ -50,6 +60,12 @@ export default {
   methods: {
     onClickBook() {
       console.log(this.bookListData);
+    },
+    openBookRegisterModal() {
+      this.isModalVisible = true;
+    },
+    closeBookRegisterModal() {
+      this.isModalVisible = false;
     },
   },
 };

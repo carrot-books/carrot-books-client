@@ -10,7 +10,8 @@
           {{ title }}
         </div>
         <button
-          class="w-14 h-9 rounded-sm bg-primary text-white cursor-pointer"
+          class="w-14 h-7 rounded-sm bg-primary text-white cursor-pointer"
+          @click="emit('closeModal')"
         >
           X
         </button>
@@ -72,6 +73,8 @@
 </template>
 
 <script setup lang="ts">
+import { ref, defineProps, defineEmits } from "vue";
+
 defineProps({
   title: String,
   content: String,
