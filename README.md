@@ -29,3 +29,6 @@ Build the application for production:
 ```bash
 yarn build
 ```
+
+main 배포 : https://carrot-books.vercel.app/
+dev 배포 : https://carrot-books-client-dev.vercel.app/ 
